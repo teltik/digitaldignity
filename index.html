@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digital Dignity</title>
+<meta name="description" content="Digital Dignity is a New Jersey nonprofit helping families, seniors and students get reliable, affordable home internet.">
+<meta property="og:title" content="Digital Dignity">
+<meta property="og:description" content="A dependable connection belongs in every home.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://digitaldignity.online/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1758687126499-9ff30d1c5762?w=1200&h=630&q=70&auto=format&fit=crop">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f4c47'/%3E%3Crect x='7' y='19' width='3.5' height='6' rx='1' fill='%23e3a23b'/%3E%3Crect x='12.5' y='15' width='3.5' height='10' rx='1' fill='%23e3a23b'/%3E%3Crect x='18' y='11' width='3.5' height='14' rx='1' fill='%23e3a23b'/%3E%3Crect x='23.5' y='7' width='3.5' height='18' rx='1' fill='%23e3a23b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: civic and warm. Split hero with a real photo, photo led audience cards, a deep teal band for how we help, form beside a photo. Signal bars are the recurring mark. */
+:root{
+  --paper:#f5f7f6;
+  --surface:#ffffff;
+  --ink:#14201e;
+  --muted:#556563;
+  --line:#d4dfdc;
+  --teal:#0f4c47;
+  --teal-soft:#e2ece9;
+  --on-teal:#ffffff;
+  --band:#0f4c47;
+  --band-ink:#e9f2f0;
+  --band-muted:#a9c6c1;
+  --amber:#e3a23b;
+  --error:#a33a2a;
+  --font-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body:"Public Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --wrap:1180px;
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0d1514; --surface:#13201e; --ink:#e7efed; --muted:#9fb3af; --line:#24403c;
+    --teal:#7cc4b9; --teal-soft:#16302d; --on-teal:#0b1a18;
+    --band:#102b28; --band-ink:#e7efed; --band-muted:#9fbfb9;
+    --amber:#f0b450; --error:#ef8b78; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0d1514; --surface:#13201e; --ink:#e7efed; --muted:#9fb3af; --line:#24403c;
+  --teal:#7cc4b9; --teal-soft:#16302d; --on-teal:#0b1a18;
+  --band:#102b28; --band-ink:#e7efed; --band-muted:#9fbfb9;
+  --amber:#f0b450; --error:#ef8b78; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--font-body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block;color:transparent}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-0.015em}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+
+/* signal bars mark */
+.bars{display:inline-flex;align-items:flex-end;gap:3px;height:18px}
+.bars i{display:block;width:4px;border-radius:1.5px;background:var(--amber)}
+.bars i:nth-child(1){height:30%}.bars i:nth-child(2){height:55%}.bars i:nth-child(3){height:78%}.bars i:nth-child(4){height:100%}
+
+/* header */
+.site-header{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:color-mix(in srgb, var(--paper) 92%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:21;background:var(--paper)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 1.2rem/1 var(--font-display);letter-spacing:-0.01em}
+.brand .bars{height:20px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.95rem;font-weight:500}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+.nav .cta-small{text-decoration:none;font-weight:600;font-size:.95rem;padding:9px 16px;border-radius:999px;background:var(--teal);color:var(--on-teal)}
+@media (max-width: 860px){.nav ul{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 1rem/1 var(--font-body);text-decoration:none;padding:15px 22px;border-radius:999px;border:2px solid var(--teal);cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:var(--on-teal)}
+.btn-ghost{background:transparent;color:var(--teal)}
+
+/* hero */
+.hero{padding-block:56px 72px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 .8rem/1 var(--font-body);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.hero h1{font-size:clamp(2.5rem, 5.6vw, 4.6rem);font-weight:800;margin-top:22px}
+.hero h1 em{font-style:normal;color:var(--teal);background:linear-gradient(transparent 68%, color-mix(in srgb, var(--amber) 45%, transparent) 68%)}
+.hero .lede{font-size:1.2rem;color:var(--muted);max-width:34em;margin-top:24px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-photo{position:relative;min-width:0}
+.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px 22px 22px 120px;background:var(--teal-soft)}
+.hero-note{position:absolute;right:-14px;bottom:28px;max-width:290px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;font-size:.95rem;line-height:1.5;box-shadow:0 18px 40px -22px rgba(10,30,28,.45)}
+.hero-note strong{display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:4px}
+@media (max-width: 900px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-photo img{aspect-ratio:4/3;border-radius:18px 18px 18px 72px}
+  .hero-note{position:static;max-width:none;margin-top:14px;box-shadow:none}
+}
+
+/* sections */
+section{scroll-margin-top:80px}
+.section{padding-block:88px}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:48px}
+.section-head h2{font-size:clamp(2rem, 3.6vw, 3rem);font-weight:800}
+.section-head p{color:var(--muted);font-size:1.1rem;max-width:36em}
+@media (max-width: 860px){.section-head{grid-template-columns:1fr;gap:16px}.section{padding-block:64px}}
+
+/* gap statement */
+.gap{border-top:1px solid var(--line)}
+.gap-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px}
+.gap h2{font-size:clamp(2rem, 3.6vw, 3rem);font-weight:800}
+.gap-body{display:grid;gap:18px;font-size:1.15rem;color:var(--muted);max-width:38em}
+.gap-body p:first-child{color:var(--ink)}
+@media (max-width: 860px){.gap-grid{grid-template-columns:1fr;gap:20px}}
+
+/* audience cards */
+.people{display:grid;grid-template-columns:repeat(3, 1fr);gap:24px}
+.person{display:flex;flex-direction:column;gap:16px;min-width:0}
+.person img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);background:var(--teal-soft)}
+.person h3{font-size:1.45rem;font-weight:700}
+.person p{color:var(--muted)}
+@media (max-width: 860px){.people{grid-template-columns:1fr;gap:40px}}
+
+/* how we help band */
+.band{background:var(--band);color:var(--band-ink)}
+.band .section-head p{color:var(--band-muted)}
+.steps{display:grid;grid-template-columns:repeat(3, 1fr);gap:0;border-top:1px solid color-mix(in srgb, var(--band-ink) 22%, transparent)}
+.band-photo{width:100%;aspect-ratio:1024/572;object-fit:cover;border-radius:20px;margin-bottom:48px;background:color-mix(in srgb, var(--band-ink) 10%, transparent)}
+@media (max-width: 860px){.band-photo{border-radius:14px;margin-bottom:32px}}
+.step{padding:30px 30px 6px 0;display:grid;gap:12px;align-content:start;min-width:0}
+.step + .step{padding-left:30px;border-left:1px solid color-mix(in srgb, var(--band-ink) 22%, transparent)}
+.step .bars{height:22px}
+.step h3{font-size:1.4rem;font-weight:700;color:var(--band-ink)}
+.step p{color:var(--band-muted)}
+.promises{display:flex;flex-wrap:wrap;gap:12px;margin-top:56px}
+.promise{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;border:1px solid color-mix(in srgb, var(--band-ink) 30%, transparent);font-weight:600}
+.promise svg{flex:none}
+@media (max-width: 860px){
+  .steps{grid-template-columns:1fr}
+  .step,.step + .step{padding:26px 0 6px;border-left:0}
+  .step + .step{border-top:1px solid color-mix(in srgb, var(--band-ink) 22%, transparent)}
+}
+
+/* partners */
+.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.partner-grid img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:120px 22px 22px 22px;background:var(--teal-soft)}
+.partner-list{list-style:none;margin:28px 0 34px;padding:0;display:grid;border-top:1px solid var(--line)}
+.partner-list li{display:flex;gap:16px;align-items:baseline;padding-block:16px;border-bottom:1px solid var(--line)}
+.partner-list strong{font-family:var(--font-display);font-size:1.15rem;min-width:0}
+.partner-list span{color:var(--muted);margin-left:auto;text-align:right;font-size:.95rem}
+.partner-copy h2{font-size:clamp(2rem, 3.6vw, 3rem);font-weight:800}
+.partner-copy > p{color:var(--muted);font-size:1.1rem;margin-top:18px}
+@media (max-width: 860px){
+  .partner-grid{grid-template-columns:1fr;gap:32px}
+  .partner-list li{flex-direction:column;gap:2px}
+  .partner-list span{margin-left:0;text-align:left}
+}
+
+/* contact */
+.contact{border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+.contact-aside h2{font-size:clamp(2rem, 3.6vw, 3rem);font-weight:800}
+.contact-aside > p{color:var(--muted);font-size:1.1rem;margin-top:18px}
+.contact-aside img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);margin-top:32px;background:var(--teal-soft)}
+.address{margin-top:22px;font-size:.98rem;color:var(--muted);font-style:normal;line-height:1.6}
+.address strong{color:var(--ink)}
+form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:34px;display:grid;gap:20px;min-width:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:grid;gap:8px;min-width:0}
+label{font-weight:600;font-size:.95rem}
+label .opt{font-weight:400;color:var(--muted)}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:13px 14px}
+textarea{min-height:150px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px color-mix(in srgb, var(--teal) 22%, transparent)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between}
+.form-foot small{color:var(--muted);max-width:30em}
+.status{font-weight:600;border-radius:10px;padding:14px 16px}
+.status.ok{background:var(--teal-soft);color:var(--ink)}
+.status.err{background:color-mix(in srgb, var(--error) 14%, transparent);color:var(--error)}
+@media (max-width: 860px){.contact-grid{grid-template-columns:1fr;gap:36px}.row{grid-template-columns:1fr}form{padding:24px}}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:40px 48px;font-size:.92rem;color:var(--muted)}
+.foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
+.foot p{max-width:46em}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Digital Dignity home">
+      <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      Digital Dignity
+    </a>
+    <ul>
+      <li><a href="#who">Who we serve</a></li>
+      <li><a href="#how">How we help</a></li>
+      <li><a href="#partner">Partner with us</a></li>
+    </ul>
+    <a class="cta-small" href="#contact">Contact us</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>A New Jersey nonprofit</span>
+        <h1>A dependable connection belongs in <em>every home.</em></h1>
+        <p class="lede">Digital Dignity helps families, seniors and students who have been left offline get reliable, affordable home internet. No credit check. No bank account required. Real people to call when something goes wrong.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="#partner">Partner with us</a>
+        </div>
+      </div>
+      <figure class="hero-photo" style="margin:0">
+        <img src="https://images.unsplash.com/photo-1758687126499-9ff30d1c5762?w=1100&q=72&auto=format&fit=crop" alt="A father and his son learning together on a laptop at home" width="1100" height="1375" fetchpriority="high">
+        <figcaption class="hero-note"><strong>It starts at the kitchen table.</strong>Homework, doctor visits, job applications and calls with family all depend on a connection that works.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section gap">
+    <div class="wrap gap-grid">
+      <h2>Being offline today means a closed door.</h2>
+      <div class="gap-body">
+        <p>School assignments, medical appointments, benefit applications and job interviews have all moved online. A household without a steady connection falls further behind every month.</p>
+        <p>The usual path to getting connected often shuts people out before they start: credit checks, autopay from a bank account, and sign up processes written for someone else. Digital Dignity exists to open that door.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="who" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Who we serve</h2>
+        <p>Neighbors across New Jersey who need a connection to learn, stay healthy and stay close to the people they love.</p>
+      </div>
+      <div class="people">
+        <article class="person">
+          <img src="https://images.unsplash.com/photo-1597933471507-1ca5765185d8?w=900&q=70&auto=format&fit=crop" alt="A boy doing schoolwork on a laptop" loading="lazy" width="900" height="675">
+          <h3>Students</h3>
+          <p>Finishing homework at home instead of in a parking lot outside a library or restaurant.</p>
+        </article>
+        <article class="person">
+          <img src="https://images.unsplash.com/photo-1706806593440-53c9dab6d39f?w=900&q=70&auto=format&fit=crop" alt="An older couple sitting on a couch looking at a tablet together" loading="lazy" width="900" height="675">
+          <h3>Seniors</h3>
+          <p>Seeing a doctor by video, managing prescriptions, and staying in touch with children and grandchildren.</p>
+        </article>
+        <article class="person">
+          <img src="https://images.unsplash.com/photo-1758598738330-77e8451b5fbf?w=900&q=70&auto=format&fit=crop" alt="A mother and her young daughter on a couch with a laptop" loading="lazy" width="900" height="675">
+          <h3>Families</h3>
+          <p>Applying for work, handling benefits and paperwork, and keeping a busy household running.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How we help</h2>
+        <p>We work with established carrier partners to bring home internet to households that need it, and we stay with them after it is plugged in.</p>
+      </div>
+      <img class="band-photo" src="images/family-home-internet.jpg" alt="Three generations of a family on a couch using laptops, a tablet and a phone, with a home internet router on the side table" width="1024" height="572" loading="lazy">
+      <div class="steps">
+        <div class="step">
+          <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <h3>Home internet that fits</h3>
+          <p>5G home internet delivered over a national wireless network. No cable lines, no installation appointment, no drilling.</p>
+        </div>
+        <div class="step">
+          <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <h3>Ready on day one</h3>
+          <p>Each home receives a router that is set up in advance. Plug it in, connect your devices, and you are online.</p>
+        </div>
+        <div class="step">
+          <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <h3>Help from real people</h3>
+          <p>Questions go to a person who will walk you through it in plain language, as many times as it takes.</p>
+        </div>
+      </div>
+      <div class="promises" aria-label="Our commitments">
+        <span class="promise"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>No credit check</span>
+        <span class="promise"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>No bank account or autopay required</span>
+        <span class="promise"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Your privacy respected</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="partner">
+    <div class="wrap partner-grid">
+      <img src="https://images.unsplash.com/photo-1758612898715-a354d0e62a03?w=1100&q=70&auto=format&fit=crop" alt="A grandfather and grandson looking at a laptop together" loading="lazy" width="1100" height="880">
+      <div class="partner-copy">
+        <h2>Partner with us</h2>
+        <p>The organizations that already know the families in a community are the best way to reach them. We work alongside them.</p>
+        <ul class="partner-list">
+          <li><strong>Schools and libraries</strong><span>Students who need a connection at home</span></li>
+          <li><strong>Congregations and community centers</strong><span>Members and neighbors you already serve</span></li>
+          <li><strong>Housing and social service agencies</strong><span>Residents and clients getting back on their feet</span></li>
+          <li><strong>Donors and volunteers</strong><span>People who want to help close the gap</span></li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Start a conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-aside">
+        <h2>Contact us</h2>
+        <p>Whether you are looking for help getting connected or want to work with us, send a note and a member of our team will reach out.</p>
+        <address class="address"><strong>Digital Dignity</strong><br>731 Route 18<br>East Brunswick, NJ 08816</address>
+        <img src="https://images.unsplash.com/photo-1706806595131-ebd5758854dd?w=900&q=70&auto=format&fit=crop" alt="A woman sitting on a couch reading on a tablet" loading="lazy" width="900" height="675">
+      </div>
+
+      <form id="contact-form" novalidate>
+        <div class="row">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="phone">Phone <span class="opt">(optional)</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="organization">Organization <span class="opt">(optional)</span></label>
+            <input id="organization" name="organization" type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="field">
+          <label for="reason">I am reaching out as</label>
+          <select id="reason" name="reason" required>
+            <option value="">Choose one</option>
+            <option>A person or family looking to get connected</option>
+            <option>A school or library</option>
+            <option>A community or faith organization</option>
+            <option>A housing or social service agency</option>
+            <option>A donor or volunteer</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">How can we help?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <label class="hp" aria-hidden="true">Leave this empty<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
+        <div id="status" class="status" role="status" hidden></div>
+        <div class="form-foot">
+          <small>We use your information only to respond to you. We never sell or share it.</small>
+          <button class="btn btn-primary" id="submit" type="submit">Send message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>Digital Dignity is a New Jersey nonprofit corporation recognized as tax exempt under Section 501(c)(3) of the Internal Revenue Code. 731 Route 18, East Brunswick, NJ 08816.</p>
+    <p>© <span id="year">2026</span> Digital Dignity. Photography via Unsplash.</p>
+  </div>
+</footer>
+
+<script>
+// Paste the free Web3Forms access key here (see README). Messages are emailed to the address the key was created for.
+const WEB3FORMS_ACCESS_KEY = "";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const form = document.getElementById("contact-form");
+const statusEl = document.getElementById("status");
+const submitBtn = document.getElementById("submit");
+
+function showStatus(kind, text){
+  statusEl.className = "status " + kind;
+  statusEl.textContent = text;
+  statusEl.hidden = false;
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  statusEl.hidden = true;
+
+  const required = ["name","email","reason","message"];
+  for (const id of required){
+    const el = document.getElementById(id);
+    if (!el.value.trim()){
+      showStatus("err", "Please fill in your name, email, who you are, and your message.");
+      el.focus();
+      return;
+    }
+  }
+  const email = document.getElementById("email");
+  if (!email.checkValidity()){
+    showStatus("err", "That email address does not look right. Please check it and try again.");
+    email.focus();
+    return;
+  }
+  if (!WEB3FORMS_ACCESS_KEY){
+    showStatus("err", "This form is not connected yet. Add the access key in index.html to start receiving messages.");
+    return;
+  }
+
+  const data = Object.fromEntries(new FormData(form));
+  data.access_key = WEB3FORMS_ACCESS_KEY;
+  data.subject = "New message from digitaldignity.online: " + data.reason;
+  data.from_name = "Digital Dignity website";
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending";
+  try{
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method:"POST",
+      headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify(data)
+    });
+    const out = await res.json().catch(() => ({}));
+    if (res.ok && out.success){
+      form.reset();
+      showStatus("ok", "Thank you. Your message was sent and a member of our team will reach out.");
+    } else {
+      showStatus("err", "Your message did not go through. Please try again in a moment.");
+    }
+  } catch {
+    showStatus("err", "We could not reach the server. Check your connection and try again.");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Send message";
+  }
+});
+</script>
+</body>
+</html>
