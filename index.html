@@ -35,6 +35,7 @@
 }
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.7 var(--font);-webkit-font-smoothing:antialiased}
@@ -75,7 +76,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero{padding-block:72px 48px}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .hero h1{font-size:clamp(2.6rem, 5.4vw, 4.4rem);margin-top:22px}
-.hero h1 span{color:var(--accent)}
+.hero h1 .mark{position:relative;white-space:nowrap;color:var(--accent);z-index:0}
+.hero h1 .mark::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.02em;height:.32em;z-index:-1;border-radius:6px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M3 13 C 60 5, 140 4, 297 9 L 296 17 C 180 13, 90 14, 4 18 Z' fill='%23bfe3dd'/%3E%3C/svg%3E") center/100% 100% no-repeat}
 .hero .lede{font-size:1.2rem;color:var(--muted);max-width:32em;margin-top:22px}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 .hero-photo{min-width:0;position:relative}
@@ -165,6 +167,41 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 .status.err{background:#fbecea;color:var(--error)}
 @media (max-width: 860px){.contact-grid{grid-template-columns:1fr;gap:36px}.row{grid-template-columns:1fr}form{padding:24px}}
 
+/* tags */
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tags span{font-size:.78rem;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+
+/* coverage */
+.coverage{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.coverage-copy > p{color:var(--muted);font-size:1.12rem;margin-top:16px}
+.cov-card{border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;min-width:0;background:var(--bg)}
+.cov-tabs{display:flex;gap:6px;padding:5px;background:var(--soft);border-radius:999px;margin-bottom:26px;overflow-x:auto}
+.cov-tabs button{flex:1 0 auto;font:600 .92rem/1 var(--font);color:var(--muted);background:transparent;border:0;border-radius:999px;padding:12px 16px;cursor:pointer;white-space:nowrap}
+.cov-tabs button[aria-selected="true"]{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgba(15,26,25,.12)}
+.cov-panel{display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:start}
+.cov-panel .icon{width:72px;height:72px;border-radius:20px}
+.cov-panel h3{font-size:1.3rem}
+.cov-panel p{color:var(--muted);margin:6px 0 20px}
+@media (max-width: 520px){.cov-tabs button{flex:1 1 0;white-space:normal;padding:10px 6px;font-size:.82rem;line-height:1.2}}
+@media (max-width: 900px){.coverage{grid-template-columns:1fr;gap:32px}.cov-card{padding:20px}.cov-panel{grid-template-columns:1fr;gap:14px}.cov-panel .icon{width:56px;height:56px;border-radius:16px}}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.faq-grid > div > p{color:var(--muted);font-size:1.12rem;margin-top:16px}
+.faq{display:grid;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-block:22px;font-weight:700;font-size:1.08rem;letter-spacing:-0.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230e6b63' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding-bottom:22px;max-width:40em}
+@media (max-width: 860px){.faq-grid{grid-template-columns:1fr;gap:28px}}
+
+/* checklist */
+.checks{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
+.checks li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-weight:500}
+.checks li::before{content:"";width:24px;height:24px;border-radius:50%;margin-top:2px;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center/14px no-repeat}
+
 /* footer */
 footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--line)}
 .foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
@@ -180,10 +217,11 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
       Digital Dignity
     </a>
     <ul>
-      <li><a href="#mission">Our mission</a></li>
-      <li><a href="#who">Who we serve</a></li>
+            <li><a href="#who">Who we serve</a></li>
       <li><a href="#how">How we help</a></li>
+      <li><a href="#coverage">Coverage</a></li>
       <li><a href="#partner">Partner with us</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
     <a class="btn btn-primary btn-sm" href="#contact">Contact us</a>
   </div>
@@ -194,7 +232,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>A New Jersey nonprofit</span>
-        <h1>A dependable connection belongs in <span>every home.</span></h1>
+        <h1>A dependable connection belongs in <span class="mark">every home.</span></h1>
         <p class="lede">Digital Dignity helps families, seniors and students who have been left offline get reliable, affordable home internet. No credit check. No bank account required. Real people to call when something goes wrong.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#contact">Get in touch</a>
@@ -243,6 +281,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
           <div class="person-body">
             <h3>Students</h3>
             <p>Finishing homework at home instead of in a parking lot outside a library or restaurant.</p>
+            <div class="tags"><span>K to 12</span><span>College</span><span>Remote learning</span></div>
           </div>
         </article>
         <article class="person">
@@ -250,6 +289,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
           <div class="person-body">
             <h3>Seniors</h3>
             <p>Seeing a doctor by video, managing prescriptions, and staying in touch with children and grandchildren.</p>
+            <div class="tags"><span>Telehealth</span><span>Video calls</span><span>Prescriptions</span></div>
           </div>
         </article>
         <article class="person">
@@ -257,6 +297,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
           <div class="person-body">
             <h3>Families</h3>
             <p>Applying for work, handling benefits and paperwork, and keeping a busy household running.</p>
+            <div class="tags"><span>Job search</span><span>Benefits</span><span>Banking</span></div>
           </div>
         </article>
       </div>
@@ -297,7 +338,41 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
     </div>
   </section>
 
-  <section class="section" id="partner" style="padding-top:24px">
+  <section class="section soft" id="coverage">
+    <div class="wrap coverage">
+      <div class="coverage-copy">
+        <span class="kicker">Coverage</span>
+        <h2>Check service at your address</h2>
+        <p>Our home internet runs on a national 5G wireless network. Look up your address before you reach out, or send us your address and we will check it for you.</p>
+        <ul class="checks">
+          <li>No cable or phone line needed</li>
+          <li>Works anywhere the network reaches your home</li>
+          <li>We confirm coverage before anything ships</li>
+        </ul>
+      </div>
+      <div class="cov-card">
+        <div class="cov-tabs" role="tablist" aria-label="Coverage tools">
+          <button id="tab-map" role="tab" aria-selected="true" aria-controls="panel-map">Coverage map</button>
+          <button id="tab-signal" role="tab" aria-selected="false" aria-controls="panel-signal" tabindex="-1">Signal strength</button>
+          <button id="tab-speed" role="tab" aria-selected="false" aria-controls="panel-speed" tabindex="-1">Speed test</button>
+        </div>
+        <div class="cov-panel" id="panel-map" role="tabpanel" aria-labelledby="tab-map">
+          <span class="icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5L9 17.5l6 2.5 6-2.5V4l-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg></span>
+          <div><h3>Coverage map</h3><p>Enter your address or zip code to see 5G coverage where you live.</p><a class="btn btn-primary" href="https://www.t-mobile.com/coverage/coverage-map" target="_blank" rel="noopener">Check now</a></div>
+        </div>
+        <div class="cov-panel" id="panel-signal" role="tabpanel" aria-labelledby="tab-signal" hidden>
+          <span class="icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 19v-3M10 19v-6M15 19v-9M20 19V6"/></svg></span>
+          <div><h3>Signal strength</h3><p>See real world signal readings reported by people near your address.</p><a class="btn btn-primary" href="https://map.coveragemap.com/" target="_blank" rel="noopener">Check now</a></div>
+        </div>
+        <div class="cov-panel" id="panel-speed" role="tabpanel" aria-labelledby="tab-speed" hidden>
+          <span class="icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 1 1 16 0"/><path d="m12 16 4-5"/><circle cx="12" cy="16" r="1.2"/></svg></span>
+          <div><h3>Speed test</h3><p>Test the connection you have today, so we can show you what changes with ours.</p><a class="btn btn-primary" href="https://www.speedtest.net/" target="_blank" rel="noopener">Run a test</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="partner">
     <div class="wrap partner-grid">
       <img src="https://images.unsplash.com/photo-1664382953647-5c6c76dd63b9?w=1100&q=72&auto=format&fit=crop" alt="A woman helping another woman on a laptop at a community center" loading="lazy" width="1100" height="1100">
       <div class="partner-copy">
@@ -315,12 +390,36 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
     </div>
   </section>
 
+  <section class="section" id="faq" style="padding-top:0">
+    <div class="wrap faq-grid">
+      <div>
+        <span class="kicker">FAQ</span>
+        <h2>Common questions</h2>
+        <p>Do not see your question here? Send it through the form below and we will answer it.</p>
+      </div>
+      <div class="faq">
+        <details open><summary>Who can get service through Digital Dignity?</summary><p>Households in our service area that need a reliable, affordable connection, especially students, seniors and families who have been left offline. Many people reach us through a school, library or community organization, but you can also contact us directly.</p></details>
+        <details><summary>Do I need a credit check or a bank account?</summary><p>No. There is no credit check, and you do not need a bank account or autopay to sign up.</p></details>
+        <details><summary>What equipment do I need?</summary><p>Just your own phones, tablets or computers. We provide a home internet router that is set up before it reaches you. Plug it in and connect your devices.</p></details>
+        <details><summary>Is there an installation appointment?</summary><p>No. Service runs over a 5G wireless network, so there are no cables to run and no technician visit.</p></details>
+        <details><summary>Will it work at my address?</summary><p>Use the coverage map above for a quick check. Before anything ships, we confirm coverage at your exact address.</p></details>
+        <details><summary>How can my organization partner with you?</summary><p>Schools, libraries, congregations, community centers and social service agencies can refer the families they serve. Choose your organization type in the form below and we will set up a call.</p></details>
+        <details><summary>What happens to my information?</summary><p>We use it only to respond to you and to provide service. We never sell or share it.</p></details>
+      </div>
+    </div>
+  </section>
+
   <section class="section soft" id="contact">
     <div class="wrap contact-grid">
       <div class="contact-aside">
         <span class="kicker">Contact us</span>
         <h2>Let's talk</h2>
         <p>Whether you are looking for help getting connected or want to work with us, send a note and a member of our team will reach out.</p>
+        <ul class="checks">
+          <li>A real person reads every message</li>
+          <li>We check coverage at your address</li>
+          <li>No cost to ask, no obligation</li>
+        </ul>
         <address class="address"><strong>Digital Dignity</strong><br>731 Route 18<br>East Brunswick, NJ 08816</address>
         <img src="https://images.unsplash.com/photo-1706806595131-ebd5758854dd?w=900&q=72&auto=format&fit=crop" alt="A woman sitting on a couch reading on a tablet" loading="lazy" width="900" height="675">
       </div>
@@ -385,6 +484,24 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
 const WEB3FORMS_ACCESS_KEY = "b89aaa4d-adb0-45b5-afa8-1cb0b869fc75";
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+const tabs = [...document.querySelectorAll('.cov-tabs [role="tab"]')];
+function selectTab(tab){
+  tabs.forEach(t => {
+    const on = t === tab;
+    t.setAttribute("aria-selected", on);
+    t.tabIndex = on ? 0 : -1;
+    document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+  });
+}
+tabs.forEach((t, i) => {
+  t.addEventListener("click", () => selectTab(t));
+  t.addEventListener("keydown", e => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const next = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+    selectTab(next); next.focus();
+  });
+});
 
 const form = document.getElementById("contact-form");
 const statusEl = document.getElementById("status");
