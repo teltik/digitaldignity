@@ -172,7 +172,17 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 .tags span{font-size:.78rem;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
 
 /* coverage */
-.coverage{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.coverage{display:grid;grid-template-columns:.7fr 1.3fr;gap:56px;align-items:center}
+.cov-panel.cov-map{display:block}
+.map-link{position:relative;display:block;border-radius:var(--r-md);overflow:hidden;background:#cfe3ef}
+.map-link img{width:100%;aspect-ratio:628/286;object-fit:cover;background:#cfe3ef;transition:transform .3s}
+.map-link:hover img{transform:scale(1.02)}
+.map-cta{position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);color:var(--ink);font-weight:600;font-size:.85rem;padding:8px 12px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.map-foot{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center;margin-top:18px}
+.map-foot .legend{grid-column:1 / -1;display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.map-foot .legend i{width:14px;height:14px;border-radius:4px;background:#e20074}
+.map-foot p{color:var(--muted);margin:0}
+@media (max-width: 600px){.map-foot{grid-template-columns:1fr}.map-foot .btn{justify-self:start}}
 .coverage-copy > p{color:var(--muted);font-size:1.12rem;margin-top:16px}
 .cov-card{border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;min-width:0;background:var(--bg)}
 .cov-tabs{display:flex;gap:6px;padding:5px;background:var(--soft);border-radius:999px;margin-bottom:26px;overflow-x:auto}
@@ -342,7 +352,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
     <div class="wrap coverage">
       <div class="coverage-copy">
         <span class="kicker">Coverage</span>
-        <h2>Check service at your address</h2>
+        <h2>We have you covered</h2>
         <p>Our home internet runs on a national 5G wireless network. Look up your address before you reach out, or send us your address and we will check it for you.</p>
         <ul class="checks">
           <li>No cable or phone line needed</li>
@@ -356,9 +366,16 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
           <button id="tab-signal" role="tab" aria-selected="false" aria-controls="panel-signal" tabindex="-1">Signal strength</button>
           <button id="tab-speed" role="tab" aria-selected="false" aria-controls="panel-speed" tabindex="-1">Speed test</button>
         </div>
-        <div class="cov-panel" id="panel-map" role="tabpanel" aria-labelledby="tab-map">
-          <span class="icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13.5L9 17.5l6 2.5 6-2.5V4l-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg></span>
-          <div><h3>Coverage map</h3><p>Enter your address or zip code to see 5G coverage where you live.</p><a class="btn btn-primary" href="https://www.t-mobile.com/coverage/coverage-map" target="_blank" rel="noopener">Check now</a></div>
+        <div class="cov-panel cov-map" id="panel-map" role="tabpanel" aria-labelledby="tab-map">
+          <a class="map-link" href="https://www.t-mobile.com/coverage/coverage-map" target="_blank" rel="noopener" aria-label="Open the live coverage map in a new tab">
+            <img src="images/coverage-map.jpg" alt="Map of the United States with 5G network coverage shaded across most of the country" width="628" height="286">
+            <span class="map-cta">Open live map <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </a>
+          <div class="map-foot">
+            <span class="legend"><i></i>5G coverage available</span>
+            <p>Enter your address or zip code on the live map to see coverage where you live.</p>
+            <a class="btn btn-primary" href="https://www.t-mobile.com/coverage/coverage-map" target="_blank" rel="noopener">Check now</a>
+          </div>
         </div>
         <div class="cov-panel" id="panel-signal" role="tabpanel" aria-labelledby="tab-signal" hidden>
           <span class="icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 19v-3M10 19v-6M15 19v-9M20 19V6"/></svg></span>
