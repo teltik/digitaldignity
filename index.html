@@ -10,183 +10,163 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://digitaldignity.online/">
 <meta property="og:image" content="https://images.unsplash.com/photo-1758687126499-9ff30d1c5762?w=1200&h=630&q=70&auto=format&fit=crop">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f4c47'/%3E%3Crect x='7' y='19' width='3.5' height='6' rx='1' fill='%23e3a23b'/%3E%3Crect x='12.5' y='15' width='3.5' height='10' rx='1' fill='%23e3a23b'/%3E%3Crect x='18' y='11' width='3.5' height='14' rx='1' fill='%23e3a23b'/%3E%3Crect x='23.5' y='7' width='3.5' height='18' rx='1' fill='%23e3a23b'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230e6b63'/%3E%3Crect x='7' y='19' width='3.5' height='6' rx='1' fill='%23fff'/%3E%3Crect x='12.5' y='15' width='3.5' height='10' rx='1' fill='%23fff'/%3E%3Crect x='18' y='11' width='3.5' height='14' rx='1' fill='%23fff'/%3E%3Crect x='23.5' y='7' width='3.5' height='18' rx='1' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
-/* Layout: civic and warm. Split hero with a real photo, photo led audience cards, a deep teal band for how we help, form beside a photo. Signal bars are the recurring mark. */
+/* Layout: white and airy. Photo led throughout: split hero, photo strip, photo cards, photo beside steps, light grey contact panel. Teal is the only accent. */
 :root{
-  --paper:#f5f7f6;
-  --surface:#ffffff;
-  --ink:#14201e;
-  --muted:#556563;
-  --line:#d4dfdc;
-  --teal:#0f4c47;
-  --teal-soft:#e2ece9;
-  --on-teal:#ffffff;
-  --band:#0f4c47;
-  --band-ink:#e9f2f0;
-  --band-muted:#a9c6c1;
-  --amber:#e3a23b;
-  --error:#a33a2a;
-  --font-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --font-body:"Public Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
-  --wrap:1180px;
-  --radius:14px;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#0d1514; --surface:#13201e; --ink:#e7efed; --muted:#9fb3af; --line:#24403c;
-    --teal:#7cc4b9; --teal-soft:#16302d; --on-teal:#0b1a18;
-    --band:#102b28; --band-ink:#e7efed; --band-muted:#9fbfb9;
-    --amber:#f0b450; --error:#ef8b78; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#0d1514; --surface:#13201e; --ink:#e7efed; --muted:#9fb3af; --line:#24403c;
-  --teal:#7cc4b9; --teal-soft:#16302d; --on-teal:#0b1a18;
-  --band:#102b28; --band-ink:#e7efed; --band-muted:#9fbfb9;
-  --amber:#f0b450; --error:#ef8b78; color-scheme:dark;
+  --bg:#ffffff;
+  --soft:#f5f7f7;
+  --ink:#0f1a19;
+  --muted:#5b6866;
+  --line:#e7ebea;
+  --accent:#0e6b63;
+  --accent-soft:#e8f3f1;
+  --on-accent:#ffffff;
+  --error:#b3402e;
+  --font:"Plus Jakarta Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --wrap:1200px;
+  --r-lg:24px;
+  --r-md:16px;
+  color-scheme:light;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--font-body);-webkit-font-smoothing:antialiased}
-img{max-width:100%;height:auto;display:block;color:transparent}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.7 var(--font);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block;color:transparent;background:var(--soft)}
 a{color:inherit}
-h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-0.015em}
+h1,h2,h3{font-family:var(--font);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-0.025em;font-weight:800}
 p{margin:0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
-:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
 
-/* signal bars mark */
 .bars{display:inline-flex;align-items:flex-end;gap:3px;height:18px}
-.bars i{display:block;width:4px;border-radius:1.5px;background:var(--amber)}
+.bars i{display:block;width:4px;border-radius:1.5px;background:var(--accent)}
 .bars i:nth-child(1){height:30%}.bars i:nth-child(2){height:55%}.bars i:nth-child(3){height:78%}.bars i:nth-child(4){height:100%}
 
 /* header */
-.site-header{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:color-mix(in srgb, var(--paper) 92%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:21;background:var(--paper)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 1.2rem/1 var(--font-display);letter-spacing:-0.01em}
-.brand .bars{height:20px}
-.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.95rem;font-weight:500}
-.nav ul a{text-decoration:none;color:var(--muted)}
+.site-header{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:21;background:var(--bg)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.15rem;letter-spacing:-0.02em}
+.nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:.95rem;font-weight:500}
+.nav ul a{text-decoration:none;color:var(--muted);transition:color .15s}
 .nav ul a:hover{color:var(--ink)}
-.nav .cta-small{text-decoration:none;font-weight:600;font-size:.95rem;padding:9px 16px;border-radius:999px;background:var(--teal);color:var(--on-teal)}
 @media (max-width: 860px){.nav ul{display:none}}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;font:600 1rem/1 var(--font-body);text-decoration:none;padding:15px 22px;border-radius:999px;border:2px solid var(--teal);cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 1rem/1 var(--font);text-decoration:none;padding:16px 26px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:background .15s, border-color .15s, transform .15s}
 .btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--teal);color:var(--on-teal)}
-.btn-ghost{background:transparent;color:var(--teal)}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{background:#0b5a53}
+.btn-ghost{background:var(--bg);color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-sm{padding:11px 18px;font-size:.92rem}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:.82rem;font-weight:600}
+.eyebrow .bars{height:13px;gap:2px}.eyebrow .bars i{width:3px}
 
 /* hero */
-.hero{padding-block:56px 72px}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 .8rem/1 var(--font-body);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
-.hero h1{font-size:clamp(2.5rem, 5.6vw, 4.6rem);font-weight:800;margin-top:22px}
-.hero h1 em{font-style:normal;color:var(--teal);background:linear-gradient(transparent 68%, color-mix(in srgb, var(--amber) 45%, transparent) 68%)}
-.hero .lede{font-size:1.2rem;color:var(--muted);max-width:34em;margin-top:24px}
+.hero{padding-block:72px 48px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(2.6rem, 5.4vw, 4.4rem);margin-top:22px}
+.hero h1 span{color:var(--accent)}
+.hero .lede{font-size:1.2rem;color:var(--muted);max-width:32em;margin-top:22px}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.hero-photo{position:relative;min-width:0}
-.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px 22px 22px 120px;background:var(--teal-soft)}
-.hero-note{position:absolute;right:-14px;bottom:28px;max-width:290px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;font-size:.95rem;line-height:1.5;box-shadow:0 18px 40px -22px rgba(10,30,28,.45)}
-.hero-note strong{display:block;font-family:var(--font-display);font-size:1.05rem;margin-bottom:4px}
+.hero-photo{min-width:0;position:relative}
+.hero-photo img{width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:var(--r-lg)}
+.hero-tag{position:absolute;left:20px;bottom:20px;right:20px;max-width:330px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-radius:var(--r-md);padding:16px 18px;font-size:.93rem;line-height:1.5;color:var(--muted)}
+.hero-tag strong{display:block;color:var(--ink);font-size:1rem;margin-bottom:2px}
 @media (max-width: 900px){
+  .hero{padding-block:40px 32px}
   .hero-grid{grid-template-columns:1fr;gap:36px}
-  .hero-photo img{aspect-ratio:4/3;border-radius:18px 18px 18px 72px}
-  .hero-note{position:static;max-width:none;margin-top:14px;box-shadow:none}
+  .hero-photo img{aspect-ratio:4/3}
 }
+
+/* photo strip */
+.strip{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;padding-block:24px 8px}
+.strip img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-md)}
+.strip img:first-child{aspect-ratio:auto}
+@media (max-width: 700px){.strip{grid-template-columns:1fr 1fr}.strip img:first-child{grid-column:1 / -1;aspect-ratio:16/9}}
 
 /* sections */
-section{scroll-margin-top:80px}
-.section{padding-block:88px}
-.section-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:48px}
-.section-head h2{font-size:clamp(2rem, 3.6vw, 3rem);font-weight:800}
-.section-head p{color:var(--muted);font-size:1.1rem;max-width:36em}
-@media (max-width: 860px){.section-head{grid-template-columns:1fr;gap:16px}.section{padding-block:64px}}
+section{scroll-margin-top:84px}
+.section{padding-block:104px}
+.kicker{font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.section h2{font-size:clamp(2rem, 3.6vw, 3rem);margin-top:12px}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:52px}
+.section-head p{color:var(--muted);font-size:1.12rem;max-width:34em}
+@media (max-width: 860px){.section{padding-block:72px}.section-head{grid-template-columns:1fr;gap:14px;margin-bottom:36px}}
 
-/* gap statement */
-.gap{border-top:1px solid var(--line)}
-.gap-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px}
-.gap h2{font-size:clamp(2rem, 3.6vw, 3rem);font-weight:800}
-.gap-body{display:grid;gap:18px;font-size:1.15rem;color:var(--muted);max-width:38em}
-.gap-body p:first-child{color:var(--ink)}
-@media (max-width: 860px){.gap-grid{grid-template-columns:1fr;gap:20px}}
+/* mission */
+.mission-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.mission-body{display:grid;gap:20px;font-size:1.15rem;color:var(--muted)}
+.mission-body p:first-child{color:var(--ink);font-size:1.3rem;line-height:1.55;font-weight:500}
+@media (max-width: 860px){.mission-grid{grid-template-columns:1fr;gap:20px}}
 
-/* audience cards */
+/* audience */
+.soft{background:var(--soft)}
 .people{display:grid;grid-template-columns:repeat(3, 1fr);gap:24px}
-.person{display:flex;flex-direction:column;gap:16px;min-width:0}
-.person img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);background:var(--teal-soft)}
-.person h3{font-size:1.45rem;font-weight:700}
+.person{background:var(--bg);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.person img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:0}
+.person-body{padding:26px 26px 30px;display:grid;gap:8px}
+.person h3{font-size:1.35rem}
 .person p{color:var(--muted)}
-@media (max-width: 860px){.people{grid-template-columns:1fr;gap:40px}}
+@media (max-width: 860px){.people{grid-template-columns:1fr;gap:20px}}
 
-/* how we help band */
-.band{background:var(--band);color:var(--band-ink)}
-.band .section-head p{color:var(--band-muted)}
-.steps{display:grid;grid-template-columns:repeat(3, 1fr);gap:0;border-top:1px solid color-mix(in srgb, var(--band-ink) 22%, transparent)}
-.band-photo{width:100%;aspect-ratio:1024/572;object-fit:cover;border-radius:20px;margin-bottom:48px;background:color-mix(in srgb, var(--band-ink) 10%, transparent)}
-@media (max-width: 860px){.band-photo{border-radius:14px;margin-bottom:32px}}
-.step{padding:30px 30px 6px 0;display:grid;gap:12px;align-content:start;min-width:0}
-.step + .step{padding-left:30px;border-left:1px solid color-mix(in srgb, var(--band-ink) 22%, transparent)}
-.step .bars{height:22px}
-.step h3{font-size:1.4rem;font-weight:700;color:var(--band-ink)}
-.step p{color:var(--band-muted)}
-.promises{display:flex;flex-wrap:wrap;gap:12px;margin-top:56px}
-.promise{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;border:1px solid color-mix(in srgb, var(--band-ink) 30%, transparent);font-weight:600}
-.promise svg{flex:none}
-@media (max-width: 860px){
-  .steps{grid-template-columns:1fr}
-  .step,.step + .step{padding:26px 0 6px;border-left:0}
-  .step + .step{border-top:1px solid color-mix(in srgb, var(--band-ink) 22%, transparent)}
-}
+/* how we help */
+.how-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.how-photo img{width:100%;aspect-ratio:1024/572;object-fit:cover;border-radius:var(--r-lg)}
+.features{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:26px}
+.features li{display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start}
+.icon{width:48px;height:48px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.features h3{font-size:1.18rem;letter-spacing:-0.015em}
+.features p{color:var(--muted);margin-top:4px}
+.promises{display:flex;flex-wrap:wrap;gap:10px;margin-top:56px}
+.promise{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:var(--soft);font-weight:600;font-size:.95rem}
+.promise svg{color:var(--accent);flex:none}
+@media (max-width: 960px){.how-grid{grid-template-columns:1fr;gap:40px}}
 
 /* partners */
-.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.partner-grid img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:120px 22px 22px 22px;background:var(--teal-soft)}
-.partner-list{list-style:none;margin:28px 0 34px;padding:0;display:grid;border-top:1px solid var(--line)}
-.partner-list li{display:flex;gap:16px;align-items:baseline;padding-block:16px;border-bottom:1px solid var(--line)}
-.partner-list strong{font-family:var(--font-display);font-size:1.15rem;min-width:0}
-.partner-list span{color:var(--muted);margin-left:auto;text-align:right;font-size:.95rem}
-.partner-copy h2{font-size:clamp(2rem, 3.6vw, 3rem);font-weight:800}
-.partner-copy > p{color:var(--muted);font-size:1.1rem;margin-top:18px}
-@media (max-width: 860px){
-  .partner-grid{grid-template-columns:1fr;gap:32px}
-  .partner-list li{flex-direction:column;gap:2px}
-  .partner-list span{margin-left:0;text-align:left}
-}
+.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.partner-grid > img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r-lg)}
+.partner-copy > p{color:var(--muted);font-size:1.12rem;margin-top:16px}
+.partner-list{list-style:none;margin:30px 0 34px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.partner-list li{border:1px solid var(--line);border-radius:var(--r-md);padding:18px 18px 20px;display:grid;gap:4px;min-width:0}
+.partner-list strong{font-size:1rem;line-height:1.35}
+.partner-list span{color:var(--muted);font-size:.92rem;line-height:1.5}
+@media (max-width: 860px){.partner-grid{grid-template-columns:1fr;gap:36px}.partner-grid > img{aspect-ratio:4/3}}
+@media (max-width: 520px){.partner-list{grid-template-columns:1fr}}
 
 /* contact */
-.contact{border-top:1px solid var(--line)}
-.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
-.contact-aside h2{font-size:clamp(2rem, 3.6vw, 3rem);font-weight:800}
-.contact-aside > p{color:var(--muted);font-size:1.1rem;margin-top:18px}
-.contact-aside img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);margin-top:32px;background:var(--teal-soft)}
-.address{margin-top:22px;font-size:.98rem;color:var(--muted);font-style:normal;line-height:1.6}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+.contact-aside > p{color:var(--muted);font-size:1.12rem;margin-top:16px}
+.contact-aside img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-lg);margin-top:32px}
+.address{margin-top:24px;font-size:.98rem;color:var(--muted);font-style:normal;line-height:1.6}
 .address strong{color:var(--ink)}
-form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:34px;display:grid;gap:20px;min-width:0}
+form{background:var(--bg);border-radius:var(--r-lg);padding:40px;display:grid;gap:20px;min-width:0;box-shadow:0 1px 2px rgba(15,26,25,.04), 0 24px 48px -28px rgba(15,26,25,.18)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .field{display:grid;gap:8px;min-width:0}
-label{font-weight:600;font-size:.95rem}
+label{font-weight:600;font-size:.92rem}
 label .opt{font-weight:400;color:var(--muted)}
-input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:13px 14px}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;transition:border-color .15s, box-shadow .15s}
 textarea{min-height:150px;resize:vertical}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px color-mix(in srgb, var(--teal) 22%, transparent)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between}
 .form-foot small{color:var(--muted);max-width:30em}
-.status{font-weight:600;border-radius:10px;padding:14px 16px}
-.status.ok{background:var(--teal-soft);color:var(--ink)}
-.status.err{background:color-mix(in srgb, var(--error) 14%, transparent);color:var(--error)}
+.status{font-weight:600;border-radius:12px;padding:14px 16px}
+.status.ok{background:var(--accent-soft);color:var(--accent)}
+.status.err{background:#fbecea;color:var(--error)}
 @media (max-width: 860px){.contact-grid{grid-template-columns:1fr;gap:36px}.row{grid-template-columns:1fr}form{padding:24px}}
 
 /* footer */
-footer{border-top:1px solid var(--line);padding-block:40px 48px;font-size:.92rem;color:var(--muted)}
+footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--line)}
 .foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
 .foot p{max-width:46em}
 </style>
@@ -200,11 +180,12 @@ footer{border-top:1px solid var(--line);padding-block:40px 48px;font-size:.92rem
       Digital Dignity
     </a>
     <ul>
+      <li><a href="#mission">Our mission</a></li>
       <li><a href="#who">Who we serve</a></li>
       <li><a href="#how">How we help</a></li>
       <li><a href="#partner">Partner with us</a></li>
     </ul>
-    <a class="cta-small" href="#contact">Contact us</a>
+    <a class="btn btn-primary btn-sm" href="#contact">Contact us</a>
   </div>
 </header>
 
@@ -213,7 +194,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 48px;font-size:.92rem
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>A New Jersey nonprofit</span>
-        <h1>A dependable connection belongs in <em>every home.</em></h1>
+        <h1>A dependable connection belongs in <span>every home.</span></h1>
         <p class="lede">Digital Dignity helps families, seniors and students who have been left offline get reliable, affordable home internet. No credit check. No bank account required. Real people to call when something goes wrong.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#contact">Get in touch</a>
@@ -221,85 +202,107 @@ footer{border-top:1px solid var(--line);padding-block:40px 48px;font-size:.92rem
         </div>
       </div>
       <figure class="hero-photo" style="margin:0">
-        <img src="https://images.unsplash.com/photo-1758687126499-9ff30d1c5762?w=1100&q=72&auto=format&fit=crop" alt="A father and his son learning together on a laptop at home" width="1100" height="1375" fetchpriority="high">
-        <figcaption class="hero-note"><strong>It starts at the kitchen table.</strong>Homework, doctor visits, job applications and calls with family all depend on a connection that works.</figcaption>
+        <img src="https://images.unsplash.com/photo-1758687126499-9ff30d1c5762?w=1100&q=75&auto=format&fit=crop" alt="A father and his son learning together on a laptop at home" width="1100" height="1320" fetchpriority="high">
+        <figcaption class="hero-tag"><strong>It starts at the kitchen table.</strong>Homework, doctor visits, job applications and calls with family all depend on a connection that works.</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="section gap">
-    <div class="wrap gap-grid">
-      <h2>Being offline today means a closed door.</h2>
-      <div class="gap-body">
+  <section class="section" id="mission" style="padding-top:48px">
+    <div class="wrap mission-grid">
+      <div>
+        <span class="kicker">Our mission</span>
+        <h2>Being offline today means a closed door.</h2>
+      </div>
+      <div class="mission-body">
         <p>School assignments, medical appointments, benefit applications and job interviews have all moved online. A household without a steady connection falls further behind every month.</p>
         <p>The usual path to getting connected often shuts people out before they start: credit checks, autopay from a bank account, and sign up processes written for someone else. Digital Dignity exists to open that door.</p>
       </div>
     </div>
+    <div class="wrap">
+      <div class="strip" style="margin-top:64px">
+        <img src="https://images.unsplash.com/photo-1758612898464-06a3fec97767?w=1100&q=72&auto=format&fit=crop" alt="A grandfather helping his grandson with homework at a desk" loading="lazy" width="1100" height="825">
+        <img src="https://images.unsplash.com/photo-1675179180217-0688a424b1ce?w=800&q=72&auto=format&fit=crop" alt="Two older men looking at a laptop together" loading="lazy" width="800" height="600">
+        <img src="https://images.unsplash.com/photo-1664382951070-70a6e4ef8ed0?w=800&q=72&auto=format&fit=crop" alt="A volunteer pointing to information for a woman at a community center" loading="lazy" width="800" height="600">
+      </div>
+    </div>
   </section>
 
-  <section class="section" id="who" style="padding-top:0">
+  <section class="section soft" id="who">
     <div class="wrap">
       <div class="section-head">
-        <h2>Who we serve</h2>
-        <p>Neighbors across New Jersey who need a connection to learn, stay healthy and stay close to the people they love.</p>
+        <div>
+          <span class="kicker">Who we serve</span>
+          <h2>Neighbors who need a connection</h2>
+        </div>
+        <p>People across New Jersey who need to learn, stay healthy and stay close to the people they love.</p>
       </div>
       <div class="people">
         <article class="person">
-          <img src="https://images.unsplash.com/photo-1597933471507-1ca5765185d8?w=900&q=70&auto=format&fit=crop" alt="A boy doing schoolwork on a laptop" loading="lazy" width="900" height="675">
-          <h3>Students</h3>
-          <p>Finishing homework at home instead of in a parking lot outside a library or restaurant.</p>
+          <img src="https://images.unsplash.com/photo-1597933471507-1ca5765185d8?w=900&q=72&auto=format&fit=crop" alt="A boy doing schoolwork on a laptop" loading="lazy" width="900" height="675">
+          <div class="person-body">
+            <h3>Students</h3>
+            <p>Finishing homework at home instead of in a parking lot outside a library or restaurant.</p>
+          </div>
         </article>
         <article class="person">
-          <img src="https://images.unsplash.com/photo-1706806593440-53c9dab6d39f?w=900&q=70&auto=format&fit=crop" alt="An older couple sitting on a couch looking at a tablet together" loading="lazy" width="900" height="675">
-          <h3>Seniors</h3>
-          <p>Seeing a doctor by video, managing prescriptions, and staying in touch with children and grandchildren.</p>
+          <img src="https://images.unsplash.com/photo-1706806593440-53c9dab6d39f?w=900&q=72&auto=format&fit=crop" alt="An older couple sitting on a couch looking at a tablet together" loading="lazy" width="900" height="675">
+          <div class="person-body">
+            <h3>Seniors</h3>
+            <p>Seeing a doctor by video, managing prescriptions, and staying in touch with children and grandchildren.</p>
+          </div>
         </article>
         <article class="person">
-          <img src="https://images.unsplash.com/photo-1758598738330-77e8451b5fbf?w=900&q=70&auto=format&fit=crop" alt="A mother and her young daughter on a couch with a laptop" loading="lazy" width="900" height="675">
-          <h3>Families</h3>
-          <p>Applying for work, handling benefits and paperwork, and keeping a busy household running.</p>
+          <img src="https://images.unsplash.com/photo-1758598738330-77e8451b5fbf?w=900&q=72&auto=format&fit=crop" alt="A mother and her young daughter on a couch with a laptop" loading="lazy" width="900" height="675">
+          <div class="person-body">
+            <h3>Families</h3>
+            <p>Applying for work, handling benefits and paperwork, and keeping a busy household running.</p>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section band" id="how">
+  <section class="section" id="how">
+    <div class="wrap how-grid">
+      <div class="how-photo">
+        <img src="images/family-home-internet.jpg" alt="Three generations of a family on a couch using laptops, a tablet and a phone, with a home internet router on the side table" width="1024" height="572" loading="lazy">
+      </div>
+      <div>
+        <span class="kicker">How we help</span>
+        <h2>Online in a day, supported for good</h2>
+        <ul class="features">
+          <li>
+            <span class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M9.5 15.5a3.5 3.5 0 0 1 5 0"/><path d="M12 18h.01"/></svg></span>
+            <div><h3>Home internet that fits</h3><p>5G home internet over a national wireless network. No cable lines, no installation appointment, no drilling.</p></div>
+          </li>
+          <li>
+            <span class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="18" height="8" rx="2"/><path d="M7 16h.01M11 16h.01"/><path d="M8 8a6 6 0 0 1 8 0"/><path d="M5.5 5.5a10 10 0 0 1 13 0"/></svg></span>
+            <div><h3>Ready on day one</h3><p>Each home receives a router that is set up in advance. Plug it in, connect your devices, and you are online.</p></div>
+          </li>
+          <li>
+            <span class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></span>
+            <div><h3>Help from real people</h3><p>Questions go to a person who will walk you through it in plain language, as many times as it takes.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="wrap">
-      <div class="section-head">
-        <h2>How we help</h2>
-        <p>We work with established carrier partners to bring home internet to households that need it, and we stay with them after it is plugged in.</p>
-      </div>
-      <img class="band-photo" src="images/family-home-internet.jpg" alt="Three generations of a family on a couch using laptops, a tablet and a phone, with a home internet router on the side table" width="1024" height="572" loading="lazy">
-      <div class="steps">
-        <div class="step">
-          <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-          <h3>Home internet that fits</h3>
-          <p>5G home internet delivered over a national wireless network. No cable lines, no installation appointment, no drilling.</p>
-        </div>
-        <div class="step">
-          <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-          <h3>Ready on day one</h3>
-          <p>Each home receives a router that is set up in advance. Plug it in, connect your devices, and you are online.</p>
-        </div>
-        <div class="step">
-          <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-          <h3>Help from real people</h3>
-          <p>Questions go to a person who will walk you through it in plain language, as many times as it takes.</p>
-        </div>
-      </div>
       <div class="promises" aria-label="Our commitments">
-        <span class="promise"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>No credit check</span>
-        <span class="promise"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>No bank account or autopay required</span>
-        <span class="promise"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Your privacy respected</span>
+        <span class="promise"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>No credit check</span>
+        <span class="promise"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>No bank account or autopay required</span>
+        <span class="promise"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Your privacy respected</span>
+        <span class="promise"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>No installation appointment</span>
       </div>
     </div>
   </section>
 
-  <section class="section" id="partner">
+  <section class="section" id="partner" style="padding-top:24px">
     <div class="wrap partner-grid">
-      <img src="https://images.unsplash.com/photo-1758612898715-a354d0e62a03?w=1100&q=70&auto=format&fit=crop" alt="A grandfather and grandson looking at a laptop together" loading="lazy" width="1100" height="880">
+      <img src="https://images.unsplash.com/photo-1664382953647-5c6c76dd63b9?w=1100&q=72&auto=format&fit=crop" alt="A woman helping another woman on a laptop at a community center" loading="lazy" width="1100" height="1100">
       <div class="partner-copy">
-        <h2>Partner with us</h2>
+        <span class="kicker">Partner with us</span>
+        <h2>Reach families through the people they trust</h2>
         <p>The organizations that already know the families in a community are the best way to reach them. We work alongside them.</p>
         <ul class="partner-list">
           <li><strong>Schools and libraries</strong><span>Students who need a connection at home</span></li>
@@ -312,13 +315,14 @@ footer{border-top:1px solid var(--line);padding-block:40px 48px;font-size:.92rem
     </div>
   </section>
 
-  <section class="section contact" id="contact">
+  <section class="section soft" id="contact">
     <div class="wrap contact-grid">
       <div class="contact-aside">
-        <h2>Contact us</h2>
+        <span class="kicker">Contact us</span>
+        <h2>Let's talk</h2>
         <p>Whether you are looking for help getting connected or want to work with us, send a note and a member of our team will reach out.</p>
         <address class="address"><strong>Digital Dignity</strong><br>731 Route 18<br>East Brunswick, NJ 08816</address>
-        <img src="https://images.unsplash.com/photo-1706806595131-ebd5758854dd?w=900&q=70&auto=format&fit=crop" alt="A woman sitting on a couch reading on a tablet" loading="lazy" width="900" height="675">
+        <img src="https://images.unsplash.com/photo-1706806595131-ebd5758854dd?w=900&q=72&auto=format&fit=crop" alt="A woman sitting on a couch reading on a tablet" loading="lazy" width="900" height="675">
       </div>
 
       <form id="contact-form" novalidate>
@@ -372,12 +376,12 @@ footer{border-top:1px solid var(--line);padding-block:40px 48px;font-size:.92rem
 <footer>
   <div class="wrap foot">
     <p>Digital Dignity is a New Jersey nonprofit corporation recognized as tax exempt under Section 501(c)(3) of the Internal Revenue Code. 731 Route 18, East Brunswick, NJ 08816.</p>
-    <p>© <span id="year">2026</span> Digital Dignity. Photography via Unsplash.</p>
+    <p>© <span id="year">2026</span> Digital Dignity</p>
   </div>
 </footer>
 
 <script>
-// Web3Forms access key (public by design; safe in page source). Messages are emailed to the address the key was created for.
+// Web3Forms access key (public by design; safe in page source)
 const WEB3FORMS_ACCESS_KEY = "b89aaa4d-adb0-45b5-afa8-1cb0b869fc75";
 
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -409,10 +413,6 @@ form.addEventListener("submit", async (e) => {
   if (!email.checkValidity()){
     showStatus("err", "That email address does not look right. Please check it and try again.");
     email.focus();
-    return;
-  }
-  if (!WEB3FORMS_ACCESS_KEY){
-    showStatus("err", "This form is not connected yet. Add the access key in index.html to start receiving messages.");
     return;
   }
 
