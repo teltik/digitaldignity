@@ -188,9 +188,23 @@
 
   var suggestions = [], active = -1, picked = null, typeTimer = null, reqId = 0;
 
+  // Mailing city the way people write it. New York City addresses use the borough
+  // (Brooklyn, Bronx, Staten Island) or, in Queens, the neighborhood (Astoria, Flushing).
+  function mailCity(city, borough, hood) {
+    if (city === "New York" || city === "New York City" || city === "City of New York") {
+      var b = (borough || "").replace(/^The /, "").replace(/ County$/, "");
+      if (b === "Kings") b = "Brooklyn";
+      if (b === "Richmond") b = "Staten Island";
+      if (b === "Brooklyn" || b === "Bronx" || b === "Staten Island") return b;
+      if (b === "Queens") return hood || "Queens";
+      return "New York";
+    }
+    return city;
+  }
+
   function photonLabel(p) {
     var line1 = [p.housenumber, p.street].filter(Boolean).join(" ") || p.name || "";
-    var city = p.city || p.town || p.village || p.county || "";
+    var city = mailCity(p.city || p.town || p.village || "", p.district, p.locality) || p.county || "";
     var st = STATES[p.state] || p.state || "";
     var tail = [city, [st, p.postcode].filter(Boolean).join(" ")].filter(Boolean).join(", ");
     return { main: line1 || city, sub: line1 ? tail : [st, p.postcode].filter(Boolean).join(" "), state: STATES[p.state] || "" };
@@ -284,7 +298,11 @@
       if (!rows.length) return null;
       var a = rows[0].address || {};
       var iso = a["ISO3166-2-lvl4"] || "";
-      return { lat: +rows[0].lat, lng: +rows[0].lon, label: rows[0].display_name.split(",").slice(0, 3).join(","), state: iso.replace("US-", "") };
+      var st = iso.replace("US-", "");
+      var line1 = [a.house_number, a.road].filter(Boolean).join(" ");
+      var city = mailCity(a.city || a.town || a.village || a.hamlet || "", a.suburb || a.borough || a.city_district || a.county, a.neighbourhood || a.quarter) || a.county || "";
+      var label = [line1, city, [st, a.postcode].filter(Boolean).join(" ")].filter(Boolean).join(", ");
+      return { lat: +rows[0].lat, lng: +rows[0].lon, label: label || rows[0].display_name.split(",").slice(0, 3).join(","), state: st };
     });
   }
 
