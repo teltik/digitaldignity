@@ -96,6 +96,12 @@
 
   function loadOverview(kind) {
     return Promise.all([1, 2, 3].map(function (l) { return load("coverage/us-" + kind + "-" + l + ".bin"); })).then(function (lv) {
+      // Older data set: a single 5G overview file.
+      if (kind === "5g" && !lv[0].length && !lv[1].length && !lv[2].length) {
+        return load("coverage/us-r5.bin").then(function (cells) { return [[], [], cells]; });
+      }
+      return lv;
+    }).then(function (lv) {
       var feats = [];
       lv.forEach(function (cells, i) { toFeatures(cells, { l: i + 1 }, feats); });
       return { type: "FeatureCollection", features: feats };
