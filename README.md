@@ -55,8 +55,8 @@ Real photographs from Unsplash (free for commercial use, no attribution required
 | Contact | https://unsplash.com/photos/JPkwTzxIfGg |
 
 ## Coverage checker
-`coverage.js` powers the address checker in the Coverage section. Data comes from the FCC National Broadband Map (June 30, 2026 filing, 5G-NR 7/1 Mbps, H3 hexagons) and lives in `coverage/`:
-- `us-r5.bin`: national overview cells (H3 resolution 5)
-- `sXX.bin`: per state cells, XX is the state FIPS code (resolution 4 to 8, compacted)
+`coverage.js` powers the address checker in the Coverage section. Data comes from the FCC National Broadband Map (June 30, 2026 filing, H3 hexagons) and lives in `coverage/`:
+- `us-5g-1.bin` to `us-5g-3.bin` and `us-lte-1.bin` to `us-lte-3.bin`: national overview cells (H3 resolution 5), split by how much of each cell is covered (1 light, 2 partial, 3 most)
+- `sXX.bin` (5G-NR 7/1 Mbps) and `sXX-lte.bin` (4G LTE 5/1 Mbps): per state cells, XX is the state FIPS code (resolution 4 to 8, compacted)
 
 Each file is a list of 64-bit H3 cell IDs, little endian. Addresses are looked up with OpenStreetMap Nominatim. The FCC publishes new filings every six months; refresh the files when a new one is out.
