@@ -195,6 +195,11 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 .cov-search input{flex:1;min-width:0;padding:15px 16px 15px 44px;border-radius:999px;font-size:1rem}
 .cov-search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
 .cov-search .btn{flex:none}
+.cov-suggest{position:absolute;z-index:30;top:calc(100% + 6px);left:0;right:190px;margin:0;padding:6px;list-style:none;background:var(--bg);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 40px -16px rgba(15,26,25,.25)}
+.cov-suggest li{display:grid;gap:1px;padding:10px 12px 10px 38px;border-radius:10px;cursor:pointer;line-height:1.35;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b6866' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z'/%3E%3Ccircle cx='12' cy='9.5' r='2.5'/%3E%3C/svg%3E") 12px 50%/16px no-repeat}
+.cov-suggest li strong{font-weight:600;font-size:.97rem}
+.cov-suggest li span{color:var(--muted);font-size:.85rem}
+.cov-suggest li.on,.cov-suggest li:hover{background-color:var(--soft)}
 .cov-result{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:14px;margin-bottom:14px;font-weight:500;line-height:1.5}
 .cov-result strong{display:block}
 .cov-result.yes{background:var(--accent-soft);color:#0a4f49}
@@ -204,7 +209,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 .cov-mapbox{position:relative;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--line);background:#eef2f3}
 #cov-map{width:100%;height:440px}
 .cov-loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-weight:600;font-size:.95rem;background:#eef2f3}
-@media (max-width: 600px){.cov-search{flex-direction:column}.cov-search .btn{width:100%}#cov-map{height:360px}}
+@media (max-width: 600px){.cov-suggest{right:0;top:58px}.cov-search{flex-direction:column}.cov-search .btn{width:100%}#cov-map{height:360px}}
 .map-foot p{color:var(--muted);margin:0}
 @media (max-width: 600px){.map-foot{grid-template-columns:1fr}.map-foot .btn{justify-self:start}}
 .coverage-copy > p{color:var(--muted);font-size:1.12rem}
@@ -610,6 +615,6 @@ form.addEventListener("submit", async (e) => {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.min.js" defer></script>
 <script src="https://unpkg.com/h3-js@4.1.0/dist/h3-js.umd.js" defer></script>
-<script src="coverage.js?v=7" defer></script>
+<script src="coverage.js?v=8" defer></script>
 </body>
 </html>
