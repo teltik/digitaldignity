@@ -187,7 +187,8 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 .map-cta{position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);color:var(--ink);font-weight:600;font-size:.85rem;padding:8px 12px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .map-foot{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center;margin-top:18px}
 .map-foot .legend{grid-column:1 / -1;display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--muted)}
-.map-foot .legend i{width:14px;height:14px;border-radius:4px;background:var(--accent);opacity:.75}
+.map-foot .legend i{width:14px;height:14px;border-radius:4px;background:#0e6b63;opacity:.75}
+.map-foot .legend i.lte{background:#7fb9b1;margin-left:14px}
 .cov-source{font-size:.85rem}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 .cov-search{position:relative;display:flex;gap:10px;margin-bottom:14px;background:none;padding:0;box-shadow:none;border-radius:0}
@@ -402,7 +403,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
             <div class="cov-loading" id="cov-loading">Loading coverage map</div>
           </div>
           <div class="map-foot">
-            <span class="legend"><i></i>5G home internet coverage</span>
+            <span class="legend"><i></i>5G home internet <i class="lte"></i>4G LTE home internet</span>
             <p class="cov-source">Coverage from the FCC National Broadband Map, June 2026 filing. Estimates only; we confirm your exact address before anything ships.</p>
           </div>
         </div>
@@ -609,6 +610,6 @@ form.addEventListener("submit", async (e) => {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.min.js" defer></script>
 <script src="https://unpkg.com/h3-js@4.1.0/dist/h3-js.umd.js" defer></script>
-<script src="coverage.js?v=4" defer></script>
+<script src="coverage.js?v=5" defer></script>
 </body>
 </html>
