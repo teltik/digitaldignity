@@ -266,6 +266,9 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 .doc a{color:var(--accent);font-weight:600}
 footer a{color:inherit}
 
+.price-note{margin-top:18px;color:var(--muted);font-size:1rem}
+.price-note strong{color:var(--ink)}
+
 /* footer */
 footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--line)}
 .foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
