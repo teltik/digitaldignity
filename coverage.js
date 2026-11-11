@@ -349,9 +349,9 @@
         var lte = !g5 && sts.some(function (st) { return hit(st.lte, place.lat, place.lng); });
         var where = escapeHtml(place.label);
         if (g5) {
-          show("yes", "<div><strong>Good news. 5G home internet is available near " + where + ".</strong>We confirm your exact address before anything ships. <a href=\"#contact\" data-reason=\"join\">Become a member</a></div>");
+          show("yes", "<div><strong>Good news. 5G home internet is available near " + where + ".</strong>We confirm your exact address before anything ships. <a href=\"#contact\" data-reason=\"join\">Get connected</a></div>");
         } else if (lte) {
-          show("yes", "<div><strong>Good news. 4G LTE home internet is available near " + where + ".</strong>5G is not mapped there yet, but our 4G LTE routers work at this location. We confirm your exact address before anything ships. <a href=\"#contact\" data-reason=\"join\">Become a member</a></div>");
+          show("yes", "<div><strong>Good news. 4G LTE home internet is available near " + where + ".</strong>5G is not mapped there yet, but our 4G LTE routers work at this location. We confirm your exact address before anything ships. <a href=\"#contact\" data-reason=\"join\">Get connected</a></div>");
         } else {
           show("no", "<div><strong>We do not see coverage at " + where + " yet.</strong>Coverage changes often and the map is an estimate. <a href=\"#contact\">Send us your address</a> and we will check it for you.</div>");
         }
