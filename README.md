@@ -53,3 +53,10 @@ Real photographs from Unsplash (free for commercial use, no attribution required
 | Families | https://unsplash.com/photos/DO0UCGoaXcQ |
 | Partner | https://unsplash.com/photos/l66zs2XFqqs |
 | Contact | https://unsplash.com/photos/JPkwTzxIfGg |
+
+## Coverage checker
+`coverage.js` powers the address checker in the Coverage section. Data comes from the FCC National Broadband Map (June 30, 2026 filing, 5G-NR 7/1 Mbps, H3 hexagons) and lives in `coverage/`:
+- `us-r5.bin`: national overview cells (H3 resolution 5)
+- `sXX.bin`: per state cells, XX is the state FIPS code (resolution 4 to 8, compacted)
+
+Each file is a list of 64-bit H3 cell IDs, little endian. Addresses are looked up with OpenStreetMap Nominatim. The FCC publishes new filings every six months; refresh the files when a new one is out.

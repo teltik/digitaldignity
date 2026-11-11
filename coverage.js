@@ -5,7 +5,7 @@
 (function () {
   "use strict";
 
-  var STATE_FIPS = {AL:"01",AK:"02",AZ:"04",AR:"05",CA:"06",CO:"08",CT:"09",DE:"10",DC:"11",FL:"12",GA:"13",HI:"15",ID:"16",IL:"17",IN:"18",IA:"19",KS:"20",KY:"21",LA:"22",ME:"23",MD:"24",MA:"25",MI:"26",MN:"27",MS:"28",MO:"29",MT:"30",NE:"31",NV:"32",NH:"33",NJ:"34",NM:"35",NY:"36",NC:"37",ND:"38",OH:"39",OK:"40",OR:"41",PA:"42",RI:"44",SC:"45",SD:"46",TN:"47",TX:"48",UT:"49",VT:"50",VA:"51",WA:"53",WV:"54",WI:"55",WY:"56",PR:"72"};
+  var STATE_FIPS = {AL:"01",AK:"02",AZ:"04",AR:"05",CA:"06",CO:"08",CT:"09",DE:"10",DC:"11",FL:"12",GA:"13",HI:"15",ID:"16",IL:"17",IN:"18",IA:"19",KS:"20",KY:"21",LA:"22",ME:"23",MD:"24",MA:"25",MI:"26",MN:"27",MS:"28",MO:"29",MT:"30",NE:"31",NV:"32",NH:"33",NJ:"34",NM:"35",NY:"36",NC:"37",ND:"38",OH:"39",OK:"40",OR:"41",PA:"42",RI:"44",SC:"45",SD:"46",TN:"47",TX:"48",UT:"49",VT:"50",VA:"51",WA:"53",WV:"54",WI:"55",WY:"56",PR:"72",VI:"78"};
   var FILL = "#0e6b63";
 
   var mapEl = document.getElementById("cov-map");
@@ -22,7 +22,7 @@
     var dv = new DataView(buf), out = [];
     for (var i = 0; i + 8 <= buf.byteLength; i += 8) {
       var lo = dv.getUint32(i, true), hi = dv.getUint32(i + 4, true);
-      out.push(hi.toString(16).padStart(8, "0") + lo.toString(16).padStart(8, "0"));
+      out.push(hi.toString(16) + lo.toString(16).padStart(8, "0"));
     }
     return out;
   }
@@ -51,7 +51,11 @@
 
   function loadState(fips) {
     if (stateCache[fips]) return Promise.resolve(stateCache[fips]);
-    return load("coverage/s" + fips + ".bin").then(function (cells) {
+    return fetch("coverage/s" + fips + ".bin").then(function (r) {
+      if (r.status === 404) return new ArrayBuffer(0);
+      if (!r.ok) throw new Error("load");
+      return r.arrayBuffer();
+    }).then(readCells).then(function (cells) {
       var set = new Set(cells);
       var centers = cells.map(function (c) { return h3.cellToLatLng(c); });
       stateCache[fips] = { cells: cells, set: set, centers: centers };
@@ -161,7 +165,7 @@
       });
     }).catch(function (err) {
       if (err.message === "notfound") show("err", "We could not find that address. Try adding the city and state, or use a zip code.");
-      else if (err.message === "outside") show("err", "This checker covers addresses in the United States and Puerto Rico.");
+      else if (err.message === "outside") show("err", "This checker covers addresses in the United States, Puerto Rico and the US Virgin Islands.");
       else show("err", "Something went wrong while checking. Please try again in a moment.");
     }).finally(function () {
       goBtn.disabled = false;
