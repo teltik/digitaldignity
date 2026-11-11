@@ -241,6 +241,23 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 .checks li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-weight:500}
 .checks li::before{content:"";width:24px;height:24px;border-radius:50%;margin-top:2px;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8'/%3E%3C/svg%3E") center/14px no-repeat}
 
+/* membership */
+.join-steps{list-style:none;margin:0 0 24px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.join-steps li{background:var(--bg);border-radius:var(--r-lg);padding:28px;display:grid;gap:8px;align-content:start}
+.join-steps .num{width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-weight:800;margin-bottom:6px}
+.join-steps h3{font-size:1.2rem}
+.join-steps p{color:var(--muted)}
+.member-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.member-card{background:var(--bg);border-radius:var(--r-lg);padding:30px}
+.member-card h3{font-size:1.2rem;margin-bottom:8px}
+.member-card p{color:var(--muted)}
+.member-card p strong{color:var(--ink)}
+.member-card .checks{margin-top:16px}
+.copyable{user-select:all;word-break:break-all}
+.member-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:32px}
+.member-cta span{color:var(--muted);font-weight:500}
+@media (max-width: 860px){.join-steps,.member-grid{grid-template-columns:1fr}.member-card,.join-steps li{padding:24px}}
+
 /* footer */
 footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--line)}
 .foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
@@ -256,7 +273,8 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
       Digital Dignity
     </a>
     <ul>
-            <li><a href="#who">Who we serve</a></li>
+            <li><a href="#membership">Membership</a></li>
+      <li><a href="#who">Who we serve</a></li>
       <li><a href="#how">How we help</a></li>
       <li><a href="#coverage">Coverage</a></li>
       <li><a href="#partner">Partner with us</a></li>
@@ -270,12 +288,12 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>A New Jersey nonprofit</span>
+        <span class="eyebrow"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>A New Jersey nonprofit membership organization</span>
         <h1>A dependable connection belongs in <span class="mark">every home.</span></h1>
-        <p class="lede">Digital Dignity helps families, seniors and students who have been left offline get reliable, affordable home internet. No credit check. No bank account required. Real people to call when something goes wrong.</p>
+        <p class="lede">Digital Dignity is a member organization working for affordable, private internet. Members get reliable home internet plans offered only through Digital Dignity, with no bank account or autopay required and real people to call when something goes wrong.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="#contact">Get in touch</a>
-          <a class="btn btn-ghost" href="#partner">Partner with us</a>
+          <a class="btn btn-primary" href="#contact" data-reason="join">Become a member</a>
+          <a class="btn btn-ghost" href="#membership">How membership works</a>
         </div>
       </div>
       <figure class="hero-photo" style="margin:0">
@@ -294,6 +312,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
       <div class="mission-body">
         <p>School assignments, medical appointments, benefit applications and job interviews have all moved online. A household without a steady connection falls further behind every month.</p>
         <p>The usual path to getting connected often shuts people out before they start: credit checks, autopay from a bank account, and sign up processes written for someone else. Digital Dignity exists to open that door.</p>
+        <p>We also believe a connection should not cost you your privacy. We keep as little information about our members as possible, and we never sell it.</p>
       </div>
     </div>
     <div class="wrap">
@@ -305,7 +324,43 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
     </div>
   </section>
 
-  <section class="section soft" id="who">
+  <section class="section soft" id="membership">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Membership</span>
+          <h2>Our service is for members</h2>
+        </div>
+        <p>Digital Dignity is a membership organization. Our home internet plans are offered only to members, through wholesale programs reserved for mission driven organizations. Membership is free, and joining takes a few minutes.</p>
+      </div>
+      <ol class="join-steps">
+        <li><span class="num">1</span><h3>Join Digital Dignity</h3><p>Membership is free. No dues, no fees and no obligation.</p></li>
+        <li><span class="num">2</span><h3>Confirm you qualify</h3><p>When you sign up, you confirm that at least one of the statements below describes your household.</p></li>
+        <li><span class="num">3</span><h3>Get connected</h3><p>Choose a member plan through one of our authorized service providers. Your router arrives set up and ready to plug in.</p></li>
+      </ol>
+      <div class="member-grid">
+        <div class="member-card">
+          <h3>Who can join</h3>
+          <p>Your household qualifies if one or more of these is true:</p>
+          <ul class="checks">
+            <li>You want internet service at a cost well below typical retail prices</li>
+            <li>You live where affordable broadband options are limited</li>
+            <li>You value internet service that respects your privacy</li>
+            <li>You support the mission of Digital Dignity</li>
+          </ul>
+        </div>
+        <div class="member-card">
+          <h3>What membership shares</h3>
+          <p>To keep your membership on record, Digital Dignity receives only your <strong>name and service address</strong>. We do not receive your phone number, email, account number, usage or billing details. We never sell or rent member information.</p>
+          <h3 style="margin-top:22px">Leave anytime</h3>
+          <p>You can end your membership at any time, at no cost, by emailing <strong class="copyable">optout@digitaldignity.online</strong>. Member plans require membership, so your service provider will offer you another plan or let you cancel without penalty.</p>
+        </div>
+      </div>
+      <div class="member-cta"><a class="btn btn-primary" href="#contact" data-reason="join">Become a member</a><span>Free, no obligation</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="who">
     <div class="wrap">
       <div class="section-head">
         <div>
@@ -343,7 +398,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
     </div>
   </section>
 
-  <section class="section" id="how">
+  <section class="section soft" id="how">
     <div class="wrap how-grid">
       <div class="how-photo">
         <img src="images/family-home-internet.jpg" alt="Three generations of a family on a couch using laptops, a tablet and a phone, with a home internet router on the side table" width="1024" height="572" loading="lazy">
@@ -369,7 +424,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
     </div>
     <div class="wrap">
       <div class="promises" aria-label="Our commitments">
-        <span class="promise"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>No credit check</span>
+        <span class="promise"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Free membership</span>
         <span class="promise"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>No bank account or autopay required</span>
         <span class="promise"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Your privacy respected</span>
         <span class="promise"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>No installation appointment</span>
@@ -377,7 +432,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
     </div>
   </section>
 
-  <section class="section soft" id="coverage">
+  <section class="section" id="coverage">
     <div class="wrap coverage">
       <div class="coverage-copy">
         <span class="kicker">Coverage</span>
@@ -419,7 +474,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
     </div>
   </section>
 
-  <section class="section" id="partner">
+  <section class="section soft" id="partner">
     <div class="wrap partner-grid">
       <img src="https://images.unsplash.com/photo-1664382953647-5c6c76dd63b9?w=1100&q=72&auto=format&fit=crop" alt="A woman helping another woman on a laptop at a community center" loading="lazy" width="1100" height="1100">
       <div class="partner-copy">
@@ -437,7 +492,7 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
     </div>
   </section>
 
-  <section class="section" id="faq" style="padding-top:0">
+  <section class="section" id="faq">
     <div class="wrap faq-grid">
       <div>
         <span class="kicker">FAQ</span>
@@ -445,13 +500,14 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
         <p>Do not see your question here? Send it through the form below and we will answer it.</p>
       </div>
       <div class="faq">
-        <details open><summary>Who can get service through Digital Dignity?</summary><p>Households in our service area that need a reliable, affordable connection, especially students, seniors and families who have been left offline. Many people reach us through a school, library or community organization, but you can also contact us directly.</p></details>
-        <details><summary>Do I need a credit check or a bank account?</summary><p>No. There is no credit check, and you do not need a bank account or autopay to sign up.</p></details>
+        <details open><summary>Who can get service through Digital Dignity?</summary><p>Service is available only to Digital Dignity members. Membership is free and open to any household that confirms at least one of our eligibility statements. Many members find us through a school, library or community organization, and you can also join directly.</p></details>
+        <details><summary>Does membership cost anything?</summary><p>No. Membership is free, with no dues, fees or obligations. You also do not need a bank account or autopay to sign up for service.</p></details>
         <details><summary>What equipment do I need?</summary><p>Just your own phones, tablets or computers. We provide a home internet router that is set up before it reaches you. Plug it in and connect your devices.</p></details>
         <details><summary>Is there an installation appointment?</summary><p>No. Service runs over a 5G wireless network, so there are no cables to run and no technician visit.</p></details>
         <details><summary>Will it work at my address?</summary><p>Use the coverage map above for a quick check. Before anything ships, we confirm coverage at your exact address.</p></details>
         <details><summary>How can my organization partner with you?</summary><p>Schools, libraries, congregations, community centers and social service agencies can refer the families they serve. Choose your organization type in the form below and we will set up a call.</p></details>
-        <details><summary>What happens to my information?</summary><p>We use it only to respond to you and to provide service. We never sell or share it.</p></details>
+        <details><summary>What information does Digital Dignity keep about me?</summary><p>Only your name and service address, to keep your membership on record and show that our member programs serve members. We never sell or rent it. Messages you send through this website are used only to respond to you.</p></details>
+        <details><summary>Can I leave membership?</summary><p>Yes, at any time and at no cost. Email optout@digitaldignity.online. Because member plans require membership, your service provider will offer you another plan or let you cancel without penalty.</p></details>
       </div>
     </div>
   </section>
@@ -496,7 +552,8 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
           <label for="reason">I am reaching out as</label>
           <select id="reason" name="reason" required>
             <option value="">Choose one</option>
-            <option>A person or family looking to get connected</option>
+            <option value="Someone who wants to become a member">Someone who wants to become a member and get connected</option>
+            <option>A current member</option>
             <option>A school or library</option>
             <option>A community or faith organization</option>
             <option>A housing or social service agency</option>
@@ -531,6 +588,11 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
 const WEB3FORMS_ACCESS_KEY = "b89aaa4d-adb0-45b5-afa8-1cb0b869fc75";
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('[data-reason="join"]');
+  if (a) document.getElementById("reason").value = "Someone who wants to become a member";
+});
 
 const tabs = [...document.querySelectorAll('.cov-tabs [role="tab"]')];
 function selectTab(tab){
@@ -610,6 +672,6 @@ form.addEventListener("submit", async (e) => {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.min.js" defer></script>
 <script src="https://unpkg.com/h3-js@4.1.0/dist/h3-js.umd.js" defer></script>
-<script src="coverage.js?v=10" defer></script>
+<script src="coverage.js?v=11" defer></script>
 </body>
 </html>
