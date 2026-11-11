@@ -116,8 +116,8 @@
     map.on("moveend", refreshDetail);
   }
 
-  function geocode(q) {
-    var url = "https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=us&addressdetails=1&limit=1&q=" + encodeURIComponent(q);
+  function nominatim(params) {
+    var url = "https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=us&addressdetails=1&limit=1&" + params;
     return fetch(url, { headers: { "Accept": "application/json" } }).then(function (r) {
       if (!r.ok) throw new Error("geocode");
       return r.json();
@@ -127,6 +127,23 @@
       var iso = a["ISO3166-2-lvl4"] || "";
       return { lat: +rows[0].lat, lng: +rows[0].lon, label: rows[0].display_name, state: iso.replace("US-", "") };
     });
+  }
+
+  // Try the full text first, then the zip code alone, then the text without the zip.
+  function geocode(q) {
+    var zip = (q.match(/\b(\d{5})(?:-\d{4})?\b/) || [])[1];
+    var tries = ["q=" + encodeURIComponent(q)];
+    if (zip) {
+      tries.push("postalcode=" + zip);
+      var rest = q.replace(/\b\d{5}(?:-\d{4})?\b/, "").replace(/[\s,]+$/, "").trim();
+      if (rest) tries.push("q=" + encodeURIComponent(rest));
+    }
+    var i = 0;
+    function next() {
+      if (i >= tries.length) return Promise.resolve(null);
+      return nominatim(tries[i++]).then(function (place) { return place || next(); });
+    }
+    return next();
   }
 
   form.addEventListener("submit", function (e) {
