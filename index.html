@@ -392,7 +392,6 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
       <div class="cov-card">
         <div class="cov-tabs" role="tablist" aria-label="Coverage tools">
           <button id="tab-map" role="tab" aria-selected="true" aria-controls="panel-map">Coverage map</button>
-          <button id="tab-signal" role="tab" aria-selected="false" aria-controls="panel-signal" tabindex="-1">Signal strength</button>
           <button id="tab-speed" role="tab" aria-selected="false" aria-controls="panel-speed" tabindex="-1">Speed test</button>
         </div>
         <div class="cov-panel cov-map" id="panel-map" role="tabpanel" aria-labelledby="tab-map">
@@ -411,10 +410,6 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
             <span class="legend"><i></i>5G home internet <i class="lte"></i>4G LTE home internet</span>
             <p class="cov-source">Coverage from the FCC National Broadband Map, June 2026 filing. Estimates only; we confirm your exact address before anything ships.</p>
           </div>
-        </div>
-        <div class="cov-panel" id="panel-signal" role="tabpanel" aria-labelledby="tab-signal" hidden>
-          <span class="icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 19v-3M10 19v-6M15 19v-9M20 19V6"/></svg></span>
-          <div><h3>Signal strength</h3><p>See real world signal readings reported by people near your address.</p><a class="btn btn-primary" href="https://map.coveragemap.com/" target="_blank" rel="noopener">Check now</a></div>
         </div>
         <div class="cov-panel" id="panel-speed" role="tabpanel" aria-labelledby="tab-speed" hidden>
           <span class="icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 1 1 16 0"/><path d="m12 16 4-5"/><circle cx="12" cy="16" r="1.2"/></svg></span>
@@ -615,6 +610,6 @@ form.addEventListener("submit", async (e) => {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.min.js" defer></script>
 <script src="https://unpkg.com/h3-js@4.1.0/dist/h3-js.umd.js" defer></script>
-<script src="coverage.js?v=8" defer></script>
+<script src="coverage.js?v=9" defer></script>
 </body>
 </html>
