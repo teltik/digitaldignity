@@ -91,33 +91,23 @@
   function initMap() {
     map = new maplibregl.Map({
       container: mapEl,
-      style: {
-        version: 8,
-        sources: {
-          base: {
-            type: "raster",
-            tiles: ["a", "b", "c", "d"].map(function (s) { return "https://" + s + ".basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png"; }),
-            tileSize: 256,
-            attribution: "© OpenStreetMap contributors © CARTO · Coverage: FCC National Broadband Map"
-          }
-        },
-        layers: [{ id: "base", type: "raster", source: "base" }]
-      },
+      style: "https://tiles.openfreemap.org/styles/positron",
       center: [-96.5, 38.6],
       zoom: 3.2,
       minZoom: 2.5,
       maxZoom: 13,
       cooperativeGestures: true,
-      attributionControl: { compact: true }
+      attributionControl: { compact: true, customAttribution: "Coverage: FCC National Broadband Map" }
     });
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
 
     map.on("load", function () {
       load("coverage/us-r5.bin").then(function (cells) {
         map.addSource("overview", { type: "geojson", data: toGeoJSON(cells) });
-        map.addLayer({ id: "overview", type: "fill", source: "overview", paint: { "fill-color": FILL, "fill-opacity": 0.55, "fill-antialias": false } });
+        var before = (map.getStyle().layers.find(function (l) { return l.type === "symbol"; }) || {}).id;
+        map.addLayer({ id: "overview", type: "fill", source: "overview", paint: { "fill-color": FILL, "fill-opacity": 0.55, "fill-antialias": false } }, before);
         map.addSource("detail", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
-        map.addLayer({ id: "detail", type: "fill", source: "detail", paint: { "fill-color": FILL, "fill-opacity": 0.55, "fill-antialias": false } });
+        map.addLayer({ id: "detail", type: "fill", source: "detail", paint: { "fill-color": FILL, "fill-opacity": 0.55, "fill-antialias": false } }, before);
         loading.hidden = true;
       }).catch(function () {
         loading.textContent = "The coverage map could not load. Try refreshing the page.";
