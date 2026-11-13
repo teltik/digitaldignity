@@ -275,3 +275,13 @@ footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px
 .foot p{max-width:46em}
 
 .partner-list li:last-child:nth-child(odd){grid-column:1 / -1}
+
+/* benefits */
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.benefit{background:var(--bg);border-radius:var(--r-lg);padding:24px;display:grid;gap:8px;align-content:start}
+.benefit h3{font-size:1.08rem;letter-spacing:-0.015em;margin-top:6px}
+.benefit p{color:var(--muted);font-size:.95rem;line-height:1.6}
+.benefits-note{color:var(--muted);font-size:.88rem;margin-top:18px}
+.benefits-note a{color:var(--accent);font-weight:600}
+@media (max-width: 1000px){.benefits{grid-template-columns:1fr 1fr}}
+@media (max-width: 560px){.benefits{grid-template-columns:1fr}}
