@@ -273,3 +273,5 @@ footer a{color:inherit}
 footer{padding-block:40px 48px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--line)}
 .foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
 .foot p{max-width:46em}
+
+.partner-list li:last-child:nth-child(odd){grid-column:1 / -1}
